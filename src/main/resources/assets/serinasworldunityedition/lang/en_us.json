@@ -1,0 +1,13 @@
+{
+  "itemGroup.serinasworldunityedition": "Example Mod Tab",
+  "block.serinasworldunityedition.example_block": "Example Block",
+  "item.serinasworldunityedition.example_item": "Example Item",
+
+  "serinasworldunityedition.configuration.title": "Serina's World: UnityEdition Configs",
+  "serinasworldunityedition.configuration.section.serinasworldunityedition.common.toml": "Serina's World: UnityEdition Configs",
+  "serinasworldunityedition.configuration.section.serinasworldunityedition.common.toml.title": "Serina's World: UnityEdition Configs",
+  "serinasworldunityedition.configuration.items": "Item List",
+  "serinasworldunityedition.configuration.logDirtBlock": "Log Dirt Block",
+  "serinasworldunityedition.configuration.magicNumberIntroduction": "Magic Number Text",
+  "serinasworldunityedition.configuration.magicNumber": "Magic Number"
+}
