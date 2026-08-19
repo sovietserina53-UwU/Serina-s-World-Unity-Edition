@@ -10,7 +10,7 @@ public class ModItems {
 
     public static final DeferredRegister.Items ITEMS=DeferredRegister.createItems(SerinasWorldUnityEdition.MODID);
 
-
+    public static final DeferredItem<Item> SALT= ITEMS.registerSimpleItem("salt");
 
 
     public static void register(IEventBus eventBus){ITEMS.register(eventBus);}
