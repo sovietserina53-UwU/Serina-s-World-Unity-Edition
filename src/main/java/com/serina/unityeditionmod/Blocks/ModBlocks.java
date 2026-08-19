@@ -26,7 +26,7 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS= DeferredRegister.createBlocks(SerinasWorldUnityEdition.MODID);
 
-    public static final DeferredBlock<Block> SALT_BLOCK=registerBlock("salt_block", properties -> new FallingBlock(properties) {
+    public static final DeferredBlock<Block> SALT_BLOCK=registerBlock("salt_block", properties -> new FallingBlock(properties.sound(SoundType.SAND)) {
         @Override
         protected MapCodec<? extends FallingBlock> codec() {
             return null;
