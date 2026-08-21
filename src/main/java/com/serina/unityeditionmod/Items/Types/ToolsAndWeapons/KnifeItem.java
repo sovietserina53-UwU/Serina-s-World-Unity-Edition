@@ -1,6 +1,9 @@
 package com.serina.unityeditionmod.Items.Types.ToolsAndWeapons;
 
 import com.serina.unityeditionmod.Blocks.ModBlocks;
+import com.serina.unityeditionmod.Config.SerinasWorldUnityEdition;
+import com.serina.unityeditionmod.Events.ServerEvents;
+import com.serina.unityeditionmod.Helpers.KnifeItemHelper;
 import com.serina.unityeditionmod.Items.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -19,23 +22,27 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.List;
 import java.util.Map;
 
+import static com.serina.unityeditionmod.Helpers.KnifeItemHelper.outputRecordList;
+
 public class KnifeItem extends Item{
 
     public KnifeItem(Properties properties) {
         super(properties);
     }
 
-
-    public record outputRecord(Block blockinput,Block blockoutput,Item item, Integer amount){}
-
-    List<outputRecord> outputRecordList=List.of
-            (
-                    new outputRecord(Blocks.HAY_BLOCK,Blocks.AIR,Items.WHEAT,9),
-                    new outputRecord(Blocks.COBBLESTONE,Blocks.AIR,ModItems.PEBBLE.get(),4)
-
-            );
-
-
+    @Override
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        for(KnifeItemHelper.SharpenItems sharpenItems:KnifeItemHelper.SharpenItemsList())
+        {
+            if(player.getMainHandItem().is(sharpenItems.input()))
+            {
+                player.getMainHandItem().shrink(1);
+                player.getOffhandItem().hurtAndBreak(1,player,InteractionHand.MAIN_HAND);
+                player.addItem(new ItemStack(sharpenItems.output()));
+            }
+        }
+        return InteractionResult.SUCCESS;
+    }
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
@@ -47,13 +54,14 @@ public class KnifeItem extends Item{
         Player player=context.getPlayer();
         if(!level.isClientSide())
         {
-            for(outputRecord outputRecord:outputRecordList)
+            for(KnifeItemHelper.outputRecord outputRecord:outputRecordList())
             {
-                if(state.is(outputRecord.blockinput))
+                if(state.is(outputRecord.blockinput()))
                 {
-                    level.setBlock(pos,outputRecord.blockoutput.defaultBlockState(),Block.UPDATE_ALL);
-                    Block.popResource(level,pos,new ItemStack(outputRecord.item,outputRecord.amount));
+                    level.setBlock(pos,outputRecord.blockoutput().defaultBlockState(),Block.UPDATE_ALL);
+                    Block.popResource(level,pos,new ItemStack(outputRecord.item(),outputRecord.amount()));
                     stack.hurtAndBreak(1,player, InteractionHand.MAIN_HAND);
+                    break;
                 }
             }
         }

@@ -1,6 +1,7 @@
 package com.serina.unityeditionmod.Events;
 
 import com.serina.unityeditionmod.Config.SerinasWorldUnityEdition;
+import com.serina.unityeditionmod.Helpers.KnifeItemHelper;
 import com.serina.unityeditionmod.Items.ModItems;
 import com.serina.unityeditionmod.Items.Types.ToolsAndWeapons.KnifeItem;
 import net.minecraft.core.BlockPos;
@@ -40,46 +41,20 @@ public class ServerEvents {
     @SubscribeEvent
     public static void RightClickItem(PlayerInteractEvent.RightClickItem event)
     {
-
-        List<Item> SharpItemsList=List.of(Items.FLINT, ModItems.SHARP_STICK.get(),ModItems.SHARP_PEBBLE.get(),ModItems.RUDIMENTARY_BLADE.get());
-        record SharpenItems(Item input, Item output){}
-        List<SharpenItems> SharpenItemsList=List.of
-                (
-                        new SharpenItems(Items.STICK,ModItems.SHARP_STICK.get()),
-                        new SharpenItems(ModItems.PEBBLE.get(), ModItems.SHARP_PEBBLE.get())
-
-                );
         Player player=event.getEntity();
 
-        for(Item item:SharpItemsList)
-        {
-            if(player.getOffhandItem().is(item))
+        if(event.getHand()!=InteractionHand.MAIN_HAND)return;
+        if(player.getOffhandItem().is(Items.FLINT)||player.getOffhandItem().is(ModItems.SHARP_PEBBLE))
+            for(KnifeItemHelper.SharpenItems sharpenItemss:KnifeItemHelper.SharpenItemsList())
             {
-                System.out.println("offhand fine");
-                for(SharpenItems sharpenItems:SharpenItemsList)
+                if(player.getMainHandItem().is(sharpenItemss.input()))
                 {
-                    if(player.getMainHandItem().is(sharpenItems.input))
-                    {
+                    player.getMainHandItem().shrink(1);
+                    player.getOffhandItem().shrink(1);
+                    player.addItem(new ItemStack(sharpenItemss.output()));
 
-
-                        if(!player.getOffhandItem().isDamageableItem())
-                        {
-                            player.addItem(new ItemStack(sharpenItems.output));
-                            player.getOffhandItem().shrink(1);
-                            player.getMainHandItem().shrink(1);
-
-                        }
-                        else
-                        {
-                            player.addItem(new ItemStack(sharpenItems.output));
-                            player.getMainHandItem().shrink(1);
-                            player.getOffhandItem().hurtAndBreak(1,player,InteractionHand.OFF_HAND);
-                        }
-                    }
                 }
             }
-        }
-
     }
 
     @SubscribeEvent
