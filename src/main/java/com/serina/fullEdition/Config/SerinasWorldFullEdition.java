@@ -1,5 +1,8 @@
 package com.serina.fullEdition.Config;
 
+import com.serina.fullEdition.Blocks.ModBlocks;
+import com.serina.fullEdition.Items.ModItems;
+import com.serina.fullEdition.ModCreativeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -26,8 +29,10 @@ public class SerinasWorldFullEdition {
     public SerinasWorldFullEdition(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
 
-        BLOCKS.register(modEventBus);
-        ITEMS.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModCreativeTabs.register(modEventBus);
+
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

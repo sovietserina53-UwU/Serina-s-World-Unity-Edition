@@ -7,6 +7,7 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.data.PackOutput;
 
 public class ModModelProvider extends ModelProvider {
@@ -25,6 +26,8 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.RUDIMENTARY_BLADE.get(),ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.IRON_KNIFE.get(),ModelTemplates.FLAT_ITEM);
 
+
         blockModels.createTrivialCube(ModBlocks.SALT_BLOCK.get());
+        blockModels.createRotatedPillarWithHorizontalVariant(ModBlocks.SUGAR_CANE_BLOCK.get(), TexturedModel.COLUMN,TexturedModel.COLUMN_HORIZONTAL);
     }
 }

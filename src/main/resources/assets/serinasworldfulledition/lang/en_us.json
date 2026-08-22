@@ -1,13 +1,18 @@
 {
  "item.serinasworldfulledition.salt": "Salt",
  "item.serinasworldfulledition.sharp_stick": "Sharp Stick",
-  "item.serinasworldfulledition.pebble": "Pebble",
-  "item.serinasworldfulledition.sharp_pebble": "Sharp Pebble",
-  "item.serinasworldfulledition.rudimentary_blade": "Rudimentary Blade",
-  "item.serinasworldfulledition.iron_knife": "Iron Knife",
+ "item.serinasworldfulledition.pebble": "Pebble",
+ "item.serinasworldfulledition.sharp_pebble": "Sharp Pebble",
+ "item.serinasworldfulledition.rudimentary_blade": "Rudimentary Blade",
+ "item.serinasworldfulledition.iron_knife": "Iron Knife",
 
 
 
 
-  "block.serinasworldfulledition.salt_block": "Salt Block"
+ "block.serinasworldfulledition.salt_block": "Salt Block",
+
+
+ "creativetab.serinasworldfulledition.items": "Items",
+ "creativetab.serinasworldfulledition.blocks": "Blocks",
+ "creativetab.serinasworldfulledition.tools": "Tools"
 }

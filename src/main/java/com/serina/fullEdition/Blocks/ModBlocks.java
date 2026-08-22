@@ -8,6 +8,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FallingBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,17 +21,8 @@ import java.util.function.Function;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS= DeferredRegister.createBlocks(SerinasWorldFullEdition.MODID);
 
-    public static final DeferredBlock<Block> SALT_BLOCK=registerBlock("salt_block", properties -> new FallingBlock(properties.sound(SoundType.SAND)) {
-        @Override
-        protected MapCodec<? extends FallingBlock> codec() {
-            return null;
-        }
-
-        @Override
-        public int getDustColor(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
-            return 0;
-        }
-    });
+    public static final DeferredBlock<Block> SALT_BLOCK=registerBlock("salt_block", properties -> new FallingBlock(properties.sound(SoundType.SAND)) {@Override protected MapCodec<? extends FallingBlock> codec() {return null;}@Override public int getDustColor(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {return 0;}});
+    public static final DeferredBlock<Block> SUGAR_CANE_BLOCK=registerBlock("sugar_cane_block",properties -> new RotatedPillarBlock(properties));
 
 
 

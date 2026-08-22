@@ -1,5 +1,6 @@
 package com.serina.fullEdition.Helpers;
 
+import com.serina.fullEdition.Blocks.ModBlocks;
 import com.serina.fullEdition.Items.ModItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -17,7 +18,8 @@ public class KnifeItemHelper {
             return List.of
             (
                     new SharpenItems(Items.STICK, ModItems.SHARP_STICK.get()),
-                    new SharpenItems(ModItems.PEBBLE.get(), ModItems.SHARP_PEBBLE.get())
+                    new SharpenItems(ModItems.PEBBLE.get(), ModItems.SHARP_PEBBLE.get()),
+                    new SharpenItems(ModItems.SHARP_PEBBLE.get(), ModItems.SPICKY_PEBBLE.get())
 
             );
     }
@@ -31,7 +33,8 @@ public class KnifeItemHelper {
                 (
                         new outputRecord(Blocks.HAY_BLOCK,Blocks.AIR,Items.WHEAT,9),
                         new outputRecord(Blocks.COBBLESTONE,Blocks.AIR,ModItems.PEBBLE.get(),4),
-                        new outputRecord(Blocks.MELON,Blocks.AIR,Items.MELON,7)
+                        new outputRecord(Blocks.MELON,Blocks.AIR,Items.MELON_SLICE,7),
+                        new outputRecord(ModBlocks.SUGAR_CANE_BLOCK.get(),Blocks.AIR,Items.SUGAR_CANE,9)
 
                 );}
 }
