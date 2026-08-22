@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sharp_pebble": {
+      "conditions": {
+        "items": [
+          {
+            "items": "serinasworldfulledition:sharp_pebble"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "serinasworldfulledition:rudimentary_blade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stick",
+      "has_sharp_pebble"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "serinasworldfulledition:rudimentary_blade"
+    ]
+  }
+}

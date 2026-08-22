@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": "serinasworldfulledition:salt"
+  },
+  "pattern": [
+    "BB ",
+    "BB ",
+    "   "
+  ],
+  "result": {
+    "id": "serinasworldfulledition:salt_block"
+  }
+}

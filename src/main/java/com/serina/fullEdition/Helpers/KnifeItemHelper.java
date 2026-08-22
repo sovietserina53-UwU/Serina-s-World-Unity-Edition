@@ -18,8 +18,7 @@ public class KnifeItemHelper {
             return List.of
             (
                     new SharpenItems(Items.STICK, ModItems.SHARP_STICK.get()),
-                    new SharpenItems(ModItems.PEBBLE.get(), ModItems.SHARP_PEBBLE.get()),
-                    new SharpenItems(ModItems.SHARP_PEBBLE.get(), ModItems.SPICKY_PEBBLE.get())
+                    new SharpenItems(ModItems.PEBBLE.get(), ModItems.SHARP_PEBBLE.get())
 
             );
     }
@@ -35,6 +34,7 @@ public class KnifeItemHelper {
                         new outputRecord(Blocks.COBBLESTONE,Blocks.AIR,ModItems.PEBBLE.get(),4),
                         new outputRecord(Blocks.MELON,Blocks.AIR,Items.MELON_SLICE,7),
                         new outputRecord(ModBlocks.SUGAR_CANE_BLOCK.get(),Blocks.AIR,Items.SUGAR_CANE,9)
+
 
                 );}
 }

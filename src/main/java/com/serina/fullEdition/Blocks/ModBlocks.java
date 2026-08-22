@@ -4,6 +4,8 @@ import com.mojang.serialization.MapCodec;
 import com.serina.fullEdition.Config.SerinasWorldFullEdition;
 import com.serina.fullEdition.Items.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -21,8 +23,11 @@ import java.util.function.Function;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS= DeferredRegister.createBlocks(SerinasWorldFullEdition.MODID);
 
-    public static final DeferredBlock<Block> SALT_BLOCK=registerBlock("salt_block", properties -> new FallingBlock(properties.sound(SoundType.SAND)) {@Override protected MapCodec<? extends FallingBlock> codec() {return null;}@Override public int getDustColor(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {return 0;}});
-    public static final DeferredBlock<Block> SUGAR_CANE_BLOCK=registerBlock("sugar_cane_block",properties -> new RotatedPillarBlock(properties));
+    public static final DeferredBlock<Block> SALT_BLOCK=registerBlock("salt_block", properties -> new FallingBlock(properties.sound(SoundType.SAND).strength(1)) {@Override protected MapCodec<? extends FallingBlock> codec() {return null;}@Override public int getDustColor(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {return 0;}});
+    public static final DeferredBlock<Block> SUGAR_CANE_BLOCK=registerBlock("sugar_cane_block",properties -> new RotatedPillarBlock(properties.sound(SoundType.HARD_CROP).strength(1)));
+    public static final DeferredBlock<Block> RUBBER_LOG=registerBlock("rubber_log",properties -> new RotatedPillarBlock(properties.sound(SoundType.WOOD).strength(1)));
+    public static final DeferredBlock<Block> RUBBER_WOOD=registerBlock("rubber_wood",properties -> new RotatedPillarBlock(properties.sound(SoundType.WOOD).strength(1)));
+    public static final DeferredBlock<Block> RUBBER_PLANKS=registerBlock("rubber_planks",properties -> new Block(properties.sound(SoundType.WOOD).strength(1)));
 
 
 
@@ -36,6 +41,9 @@ public class ModBlocks {
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block)
     {
         ModItems.ITEMS.registerItem(name,properties -> new BlockItem(block.get(),properties.useBlockDescriptionPrefix()));
+    }
+    public static ResourceKey<Block> getRK(Block block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
     }
 
     public static void register(IEventBus eventBus){BLOCKS.register(eventBus);}

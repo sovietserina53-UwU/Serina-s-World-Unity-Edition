@@ -32,6 +32,7 @@ public class ModCreativeTabs {
             {
                 output.accept(ModBlocks.SALT_BLOCK);
                 output.accept(ModBlocks.SUGAR_CANE_BLOCK);
+                output.accept(ModBlocks.RUBBER_LOG);
             }).build());
     public static final Supplier<CreativeModeTab> TOOLS=CREATIVE_MODE_TAB.register("tools",()-> CreativeModeTab.builder().
             title(Component.translatable("tools")).

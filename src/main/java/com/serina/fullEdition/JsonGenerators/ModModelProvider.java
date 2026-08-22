@@ -28,6 +28,9 @@ public class ModModelProvider extends ModelProvider {
 
 
         blockModels.createTrivialCube(ModBlocks.SALT_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.RUBBER_PLANKS.get());
         blockModels.createRotatedPillarWithHorizontalVariant(ModBlocks.SUGAR_CANE_BLOCK.get(), TexturedModel.COLUMN,TexturedModel.COLUMN_HORIZONTAL);
+        blockModels.createRotatedPillarWithHorizontalVariant(ModBlocks.RUBBER_LOG.get(), TexturedModel.COLUMN,TexturedModel.COLUMN_HORIZONTAL);
+        blockModels.createRotatedPillarWithHorizontalVariant(ModBlocks.RUBBER_WOOD.get(), TexturedModel.COLUMN,TexturedModel.COLUMN_HORIZONTAL);
     }
 }

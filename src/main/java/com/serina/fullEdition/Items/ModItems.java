@@ -17,7 +17,7 @@ public class ModItems {
 
 
     public static final DeferredItem<Item> SHARP_PEBBLE= ITEMS.registerItem("sharp_pebble",properties -> new Item(properties));
-    public static final DeferredItem<Item> SPICKY_PEBBLE = ITEMS.registerItem("spicky_rock", properties -> new Item(properties));
+
 
     public static final DeferredItem<Item> SHARP_STICK= ITEMS.registerItem("sharp_stick",properties->new KnifeItem(properties.sword(ToolMaterial.WOOD,2.0f,1.2f).durability(5)));
     public static final DeferredItem<Item> RUDIMENTARY_BLADE= ITEMS.registerItem("rudimentary_blade",properties -> new KnifeItem(properties.sword(ToolMaterial.STONE,4.0f,1.5f).durability(6)));
